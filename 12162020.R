@@ -1,17 +1,18 @@
 # https://twitter.com/data_question
 
-# Given the following code what do the two function calls return?
 
-z <- FALSE
+# In R, the following formula is equivalent to?
+# formula <- y ~ (a + b +c)^2
+formula <- disp ~(hp + mpg + wt)^2
+x = lm(disp ~(hp + mpg + wt)^2,data = mtcars)
 
-foo <- function(y = z) {
-  z <- TRUE
-  y
-}
+#Answer:
+# formula_compare <- y ~ a+b+c+a:b+a:c+b:c
+attr(x$terms, "term.labels")
 
-#function calls
-foo()
-
-foo(y = z)
-
-# Answer: True and False
+# In addition to +, there are other operators used in model formula.
+# : is used for interaction
+# - is used for removing terms
+# * for crossing
+# %in% for nesting
+# ^ for crossing to specified degree.
